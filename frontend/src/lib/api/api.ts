@@ -1,7 +1,7 @@
 import ky from 'ky';
 
 export const api = ky.create({
-	prefixUrl: '/api',
+	prefixUrl: './api',
 	retry: 0,
 	throwHttpErrors: true,
 	credentials: 'same-origin',
