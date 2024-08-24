@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/0x2e/fusion/conf"
-	"github.com/0x2e/fusion/frontend"
 	"github.com/0x2e/fusion/pkg/logx"
 	"github.com/0x2e/fusion/repo"
 	"github.com/0x2e/fusion/server"
@@ -71,12 +70,6 @@ func Run() {
 			return next(c)
 		}
 	})
-	r.Use(middleware.StaticWithConfig(middleware.StaticConfig{
-		HTML5:      true,
-		Index:      "index.html",
-		Filesystem: http.FS(frontend.Content),
-		Browse:     false,
-	}))
 
 	loginAPI := Session{}
 	r.POST("/api/sessions", loginAPI.Create)
